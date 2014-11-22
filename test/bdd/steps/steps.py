@@ -28,7 +28,7 @@ def i_check_out_the_cd(step):
 
 
 @step(u'Then the CD is recorded as rented')
-def then_the_cd_is_recorded_as_rented(step):
+def the_cd_is_recorded_as_rented(step):
     cd = CDStock.get_cd_data("CD2")
     cd.rented = "Yes"
     cd.rental_due = "1/23/2011"
@@ -38,5 +38,5 @@ def then_the_cd_is_recorded_as_rented(step):
 
 
 @step(u'And a rental contract is printed')
-def and_a_rental_contract_is_printed(step):
+def a_rental_contract_is_printed(step):
     assert False, 'This step must be implemented'

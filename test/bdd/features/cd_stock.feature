@@ -5,5 +5,5 @@ Feature:  A customer checks out a CD.
 		  Given customer has id
 		  And CD has id 
 		  And CD is not currently rented
-		  When the clerk checks out the cd
+		  When I check out the cd
 		  Then the CD is recorded as rented and a rental contract is printed

@@ -1,6 +1,9 @@
 class CustomerList(object):
     def __init__(self):
-        self.customer_list = {}
-        
+        self.list = {}
+
     def add_customer(self, customer):
-        self.customer_list[customer.id] = customer
+        self.list[customer.id] = customer
+
+    def get_customer_data(self, id):
+        return self.list.get(id)

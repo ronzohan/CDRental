@@ -17,6 +17,6 @@ class TestCDStock(unittest.TestCase):
         cd1 = CD(001, "Cloud Atlas", "No")
         cd_stock = CDStock()
         cd_stock.add_cd(cd1)
+
+        self.assertEqual(cd_stock.get_cd_data(001), cd1)
         
-        self.assertEqual(cd_stock.get_cd_data(001).title, "Cloud Atlas")
-        self.assertEqual(cd_stock.get_cd_data(001).rented, "No")

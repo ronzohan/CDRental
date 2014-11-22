@@ -6,4 +6,4 @@ class CDStock(object):
         self.cds[cd.id] = cd
         
     def get_cd_data(self, id):
-        pass
+        return self.cds.get(id)

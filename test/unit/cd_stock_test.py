@@ -19,4 +19,4 @@ class TestCDStock(unittest.TestCase):
         cd_stock.add_cd(cd1)
 
         self.assertEqual(cd_stock.get_cd_data(001), cd1)
-        
+        self.assertEqual(cd_stock.get_cd_data(002), None)

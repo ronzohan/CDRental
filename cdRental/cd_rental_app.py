@@ -1,10 +1,10 @@
 from flask import Flask, render_template
-from cdRental.cd_stock import CDStock
+from cdRental.cd_list import CDList
 from cdRental.customer_list import CustomerList
 
 
 app = Flask(__name__)
-CDStock = CDStock()
+CDList = CDList()
 CUSTOMERLIST = CustomerList()
 
 

@@ -1,4 +1,4 @@
-class CDStock(object):
+class CDList(object):
     def __init__(self):
         self.cds = {}
 

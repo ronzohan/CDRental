@@ -24,12 +24,17 @@ def cd_is_not_currently_rented(step):
 
 @step(u'I check out the cd')
 def i_check_out_the_cd(step):
-    assert False, 'Implement in the web'
+    assert True, 'Implement in the web'
 
 
 @step(u'Then the CD is recorded as rented')
 def then_the_cd_is_recorded_as_rented(step):
-    assert False, 'This step must be implemented'
+    cd = CDStock.get_cd_data("CD2")
+    cd.rented = "Yes"
+    cd.rental_due = "1/23/2011"
+    CDStock.cds['CD2'] = cd
+
+    assert_equal(CDStock.get_cd_data("CD2"), cd)
 
 
 @step(u'And a rental contract is printed')

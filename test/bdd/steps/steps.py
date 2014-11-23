@@ -2,6 +2,7 @@ from lettuce import step, world
 from cdRental.cd_rental_app import CDLIST, CUSTOMERLIST, app
 from cdRental.customer import Customer
 from cdRental.cd import CD
+from cdRental.clerk import Clerk
 from nose.tools import assert_equal,assert_in
 from webtest import TestApp
 
@@ -40,3 +41,13 @@ def the_clerk_checks_out_the_cd_with_id_group1_to_customer_with_id_group2_on_gro
 
     assert_equal(world.form_response.status_code, 200)
 
+
+@step(u'Then CD with ID "([^"]*)" is recorded as rented with customer ID "([^"]*)"')
+def then_cd_with_id_group1_is_recorded_as_rented_with_customer_id_group2(step, cd_id, customer_id):
+    clerk = Clerk()
+    clerk.record_cd_as_rented(cd_id, customer_id)
+
+    assert_equal(CDLIST.get_cd_data(cd_id).customer_id, customer_id)
+    assert_equal(CDLIST.get_cd_data(cd_id).rented, "Yes")
+    
+    

@@ -42,12 +42,21 @@ def the_clerk_checks_out_the_cd_with_id_group1_to_customer_with_id_group2_on_gro
     assert_equal(world.form_response.status_code, 200)
 
 
-@step(u'Then CD with ID "([^"]*)" is recorded as rented with customer ID "([^"]*)"')
-def then_cd_with_id_group1_is_recorded_as_rented_with_customer_id_group2(step, cd_id, customer_id):
+@step(u'CD with ID "([^"]*)" is recorded as rented with customer ID "([^"]*)"')
+def cd_with_id_group1_is_recorded_as_rented_with_customer_id_group2(step, cd_id, customer_id):
     clerk = Clerk()
     clerk.record_cd_as_rented(cd_id, customer_id)
 
     assert_equal(CDLIST.get_cd_data(cd_id).customer_id, customer_id)
     assert_equal(CDLIST.get_cd_data(cd_id).rented, "Yes")
-    
-    
+
+
+@step(u'rental contract printed with customer ID "([^"]*)", customer name "([^"]*)", CD ID "([^"]*)", CD title "([^"]*)", and rental due on "([^"]*)"')
+def and_rental_contract_printed_with_customer_id_group1_customer_name_group2_cd_id_group3_cd_title_group4_and_rental_due_on_group5(step, 
+    customer_id, customer_name, cd_id, cd_title, rental_due):
+    clerk = Clerk()
+    rental_contract = clerk.generate_rental_contract(cd_id)
+
+    assert_equal(rental_contract['CustomerID'], customer_id)
+    assert_equal(rental_contract['CustomerName'], customer_name)
+    assert_equal(rental_contract['RentalDue'], "11/25/2014")

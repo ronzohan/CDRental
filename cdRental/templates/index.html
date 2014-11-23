@@ -13,5 +13,16 @@
 		<input type="submit"/>
 	</form>
 	
+	{% if rental_contract %}
+	Rental Contract
+	<table>
+{% for key, value in rental_contract.iteritems() %}
+   <tr>
+        <th> {{ key }} </th>
+        <td> {{ value }} </td>
+   </tr>
+{% endfor %}
+</table>
+	{% endif %}
 </body>
 </html>

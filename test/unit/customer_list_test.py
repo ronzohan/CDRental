@@ -24,3 +24,9 @@ class TestCustomerList(unittest.TestCase):
 
         self.assertEqual(customer_list.get_customer_data(001), customer1)
         self.assertEqual(customer_list.get_customer_data(002), None)
+
+    def test_get_customer_data_given_id_is_string(self):
+        customer1 = Customer("001", "Ron Daryl Magno")
+        customer_list = CustomerList()
+        customer_list.add_customer(customer1)
+        self.assertEqual(customer_list.get_customer_data("001").id, customer1.id)

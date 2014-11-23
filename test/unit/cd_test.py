@@ -5,7 +5,7 @@ import datetime
 
 class TestCD(unittest.TestCase):
     def test_created_cd_object(self):
-        cd = CD("CD2", "Cloud Atlas", "No", 2)
+        cd = CD("CD2", "Cloud Atlas", "No", rental_period=2)
         self.assertEqual("CD2", cd.id)
         self.assertEqual("Cloud Atlas", cd.title)
         self.assertEqual("No", cd.rented)

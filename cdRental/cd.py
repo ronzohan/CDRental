@@ -2,7 +2,8 @@ import datetime
 
 
 class CD(object):
-    def __init__(self, id, title, rented, customer_id=None, rental_period=None, rental_due=None):
+    def __init__(self, id, title, rented, customer_id=None, rental_period=None,
+                 rental_due=None):
         self.id = id
         self.title = title
         self.rented = rented

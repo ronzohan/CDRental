@@ -6,4 +6,6 @@ class CustomerList(object):
         self.list[customer.id] = customer
 
     def get_customer_data(self, id):
+        if type(id) == str:
+            id = int(id)
         return self.list.get(id)

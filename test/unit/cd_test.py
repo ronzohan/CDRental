@@ -14,12 +14,12 @@ class TestCD(unittest.TestCase):
     def test_rent_on_cd(self):
         cd = CD("CD2", "Cloud Atlas", "No", rental_period=2)
         customer = Customer(001, "Ron Darl Magno")
-        cd.set_rent(customer)
+        cd.set_rent(customer.id)
         self.assertEqual(cd.rented, "Yes")
 
         rental_due = datetime.date.today() + \
             datetime.timedelta(days=cd.rental_period)
-        rental_due = rental_due.strftime("%m/%d/%Y") 
+        rental_due = rental_due.strftime("%m/%d/%Y")
 
         self.assertEqual(cd.rental_due, rental_due)
         self.assertEqual(cd.customer_id, 001)

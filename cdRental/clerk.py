@@ -1,7 +1,18 @@
-from cdRental.cd_rental_app import CDLIST
+from cdRental.cd_rental_app import CDLIST, CUSTOMERLIST
 
 
 class Clerk(object):
     def record_cd_as_rented(self, cd_id, customer_id):
         cd = CDLIST.get_cd_data(cd_id)
         cd.set_rent(customer_id)
+
+    def generate_rental_contract(self, cd_id):
+        cd = CDLIST.get_cd_data(cd_id)
+        customer = CUSTOMERLIST.get_customer_data(cd.customer_id)
+        rental_contract = {'CustomerID': customer.id,
+                           'CustomerName': customer.name,
+                           'CDID': cd.id,
+                           'CDTitle': cd.title,
+                           'RentalDue': cd.rental_due
+                           }
+        return rental_contract

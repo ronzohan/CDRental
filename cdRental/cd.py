@@ -7,7 +7,7 @@ class CD(object):
         self.title = title
         self.rented = rented
         self.customer_id = customer_id
-        self.rental_period = rental_period
+        self.rental_period = int(rental_period)
         self.rental_due = rental_due
 
     def set_rent(self):

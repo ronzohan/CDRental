@@ -11,6 +11,13 @@ class TestCheckoutCD(unittest.TestCase):
         checkout_cd = CheckoutCD()
         checkout_cd.checkout(customer, cd)
         self.assertEqual(checkout_cd.customer, customer)
+
+    def test_checkout_set_cd_rented(self):
+        customer = Customer(001, "Ron Daryl Magno")
+        cd = CD("CD2", "Cloud Atlas", "No", rental_period=2)
+        checkout_cd = CheckoutCD()
+        checkout_cd.checkout(customer, cd)
+        checkout_cd.set_rent()
         self.assertEqual(checkout_cd.cd.rented, "Yes")
 
     def test_check_if_customer_and_cd_objects_are_valid(self):

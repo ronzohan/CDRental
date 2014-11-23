@@ -18,7 +18,7 @@ def given_customer_group1_with_id_group2(self, customer_name, customer_id):
 def cd_with_id_group1_title_group2_has_a_rental_period_of_group3_days_and_isnot_currently_rented(step, 
     cd_id, cd_title, cd_rental_period):
 
-    cd = CD(cd_id, cd_title, cd_rental_period)
+    cd = CD(cd_id, cd_title, "No", rental_period=cd_rental_period)
     CDLIST.add_cd(cd)
 
     assert_equal(CDLIST.get_cd_data(cd_id), cd)
@@ -44,14 +44,17 @@ def the_clerk_checks_out_the_cd_with_id_group1_to_customer_with_id_group2_on_gro
 @step(u'CD with ID "([^"]*)" is recorded as rented')
 def cd_with_id_group1_is_recorded_as_rented(step, cd_id):
     cd = CDLIST.get_cd_data(cd_id)
-    cd.rented = "Yes"
+    cd.set_rent()
     CDLIST.cds[cd_id] = cd
 
     assert_equal(CDLIST.get_cd_data(cd_id), cd)
+    assert_equal(CDLIST.get_cd_data(cd_id).rental_due, cd.rental_due)
 
 
 @step(u'And rental contract printed with customer ID "([^"]*)", customer name "([^"]*)", CD ID "([^"]*)", CD title "([^"]*)", and rental due on "([^"]*)"')
 def and_rental_contract_printed_with_customer_id_group1_customer_name_group2_cd_id_group3_cd_title_group4_and_rental_due_on_group5(step, 
-    customer_id, customer_name, group3, group4, group5):
+    customer_id, customer_name, cd_id, cd_title, cd_rental_due):
 
+    customer = CUSTOMERLIST.get_customer_data(customer_id)
+    cd = CDLIST.get_cd_data(cd_id)
     

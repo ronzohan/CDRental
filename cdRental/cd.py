@@ -10,8 +10,10 @@ class CD(object):
         self.rental_period = int(rental_period)
         self.rental_due = rental_due
 
-    def set_rent(self):
+    def set_rent(self, customer):
         self.rented = "Yes"
         self.rental_due = datetime.date.today() + \
             datetime.timedelta(days=self.rental_period)
         self.rental_due = self.rental_due.strftime("%m/%d/%Y")
+
+        self.customer_id = customer.id

@@ -4,7 +4,7 @@ from cdRental.customer import Customer
 from cdRental.cd import CD
 from nose.tools import assert_equal,assert_in
 from webtest import TestApp
-
+import datetime
 
 @step(u'Customer "([^"]*)" with ID "([^"]*)"')
 def given_customer_group1_with_id_group2(self, customer_name, customer_id):
@@ -30,7 +30,7 @@ def the_clerk_checks_out_the_cd_with_id_group1_to_customer_with_id_group2_on_gro
     world.browser = TestApp(app)
     world.response = world.browser.get('http://localhost:5000/')
     form = world.response.forms['checkout-form']
-    
+
     form['cd_id'] = cd_id
     form['customer_id'] = customer_id
     world.form_response = form.submit()
@@ -50,9 +50,13 @@ def cd_with_id_group1_is_recorded_as_rented_with_customer_id_group2(step, cd_id,
 @step(u'rental contract printed with customer ID "([^"]*)", customer name "([^"]*)", CD ID "([^"]*)", CD title "([^"]*)", and rental due on "([^"]*)"')
 def and_rental_contract_printed_with_customer_id_group1_customer_name_group2_cd_id_group3_cd_title_group4_and_rental_due_on_group5(step, 
     customer_id, customer_name, cd_id, cd_title, rental_due):
- 
+
     rental_contract = generate_rental_contract(cd_id)
 
     assert_equal(rental_contract['CustomerID'], customer_id)
     assert_equal(rental_contract['CustomerName'], customer_name)
-    assert_equal(rental_contract['RentalDue'], "11/25/2014")
+    rental_due = datetime.date.today() + \
+        datetime.timedelta(days=2)
+    rental_due = rental_due.strftime("%m/%d/%Y")
+
+    assert_equal(rental_contract['RentalDue'], rental_due)

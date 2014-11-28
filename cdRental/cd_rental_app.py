@@ -24,8 +24,10 @@ def index():
     cd = CDLIST.get_cd_data(cd_id)
     customer = CUSTOMERLIST.get_customer_data(customer_id)
 
-    if cd is None or customer is None:
-        return render_template('index.html')
+    if customer is None:
+        return render_template('index.html', rental_contract={'Error': 'Customer Not Found'})
+    elif cd is None or cd.rented == "Yes":
+        return render_template('index.html', rental_contract={'Error': 'CD is not found or rented'})
     else:
         record_cd_as_rented(cd_id, customer_id)
         rental_contract = generate_rental_contract(cd_id)

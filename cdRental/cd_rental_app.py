@@ -1,13 +1,9 @@
 from flask import Flask, render_template, request
-from cd import CD
-from customer import Customer
-from cd_list import CDList
-from customer_list import CustomerList
+from models import Customer, CD, CDRentals, db
+import datetime
 
 
 app = Flask(__name__)
-CDLIST = CDList()
-CUSTOMERLIST = CustomerList()
 
 
 @app.route('/')
@@ -21,38 +17,28 @@ def index():
         except:
             pass
 
-    cd = CDLIST.get_cd_data(cd_id)
-    customer = CUSTOMERLIST.get_customer_data(customer_id)
+    cd = CD.query.filter(CD.id == cd_id).first()
+    customer = Customer.query.filter(Customer.id == customer_id).first()
 
     if customer is None:
         return render_template('index.html', rental_contract={'Error': 'Customer Not Found'})
     elif cd is None or cd.rented == "Yes":
         return render_template('index.html', rental_contract={'Error': 'CD is not found or rented'})
     else:
-        record_cd_as_rented(cd_id, customer_id)
-        rental_contract = generate_rental_contract(cd_id)
-        return render_template('index.html', rental_contract=rental_contract)
+        cdrental = CDRentals(cd_id, customer_id)
+        db.session.add(cdrental)
+        db.session.commit()
+        return render_template('index.html')
 
-
-def record_cd_as_rented( cd_id, customer_id):
-        cd = CDLIST.get_cd_data(cd_id)
-        cd.set_rent(customer_id)
-
-
-def generate_rental_contract(cd_id):
-    cd = CDLIST.get_cd_data(cd_id)
-    customer = CUSTOMERLIST.get_customer_data(cd.customer_id)
-    rental_contract = {'CustomerID': customer.id,
-                           'CustomerName': customer.name,
-                           'CDID': cd.id,
-                           'CDTitle': cd.title,
-                           'RentalDue': cd.rental_due
-                           }
-    return rental_contract
 
 if __name__ == "__main__":
-    cd = CD("CD2", "Cloud Atlas", "No", rental_period=2)
-    CDLIST.add_cd(cd)
-    customer = Customer("001", "Ron")
-    CUSTOMERLIST.add_customer(customer)
+    customer1 = Customer('Ron Magno')
+    cd = CD('Beatles Greatest Hits', rental_period=2)
+
+    db.drop_all()
+    db.create_all()
+    db.session.add(cd)
+    db.session.add(customer1)
+    db.session.commit()
+
     app.run(debug=True)

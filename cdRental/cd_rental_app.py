@@ -21,24 +21,16 @@ def index():
     customer = Customer.query.filter(Customer.id == customer_id).first()
 
     if customer is None:
-        return render_template('index.html', rental_contract={'Error': 'Customer Not Found'})
+        return render_template('index.html', 
+                               rental_contract={'Error': 'Customer Not Found'})
     elif cd is None or cd.rented == "Yes":
-        return render_template('index.html', rental_contract={'Error': 'CD is not found or rented'})
+        return render_template('index.html', 
+                               rental_contract={'Error': 'CD is not found or rented'})
     else:
         cdrental = CDRentals(cd_id, customer_id)
-        db.session.add(cdrental)
-        db.session.commit()
-        return render_template('index.html')
+        return render_template('index.html', 
+                               rental_contract=cdrental.print_contract())
 
 
 if __name__ == "__main__":
-    customer1 = Customer('Ron Magno')
-    cd = CD('Beatles Greatest Hits', rental_period=2)
-
-    db.drop_all()
-    db.create_all()
-    db.session.add(cd)
-    db.session.add(customer1)
-    db.session.commit()
-
     app.run(debug=True)

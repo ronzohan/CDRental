@@ -1,0 +1,221 @@
+************* Module cdRental
+cdRental/__init__.py:1:[C0103(invalid-name),        ] Invalid module name "cdRental"
+cdRental/__init__.py:1:[C0111(missing-docstring),        ] Missing module docstring
+************* Module cdRental.cd
+cdRental/cd.py:1:[C0111(missing-docstring),        ] Missing module docstring
+cdRental/cd.py:7:[C0103(invalid-name),        CD.__init__] Invalid attribute name "id"
+cdRental/cd.py:4:[C0111(missing-docstring),        CD] Missing class docstring
+cdRental/cd.py:5:[W0622(redefined-builtin),        CD.__init__] Redefining built-in 'id'
+cdRental/cd.py:5:[R0913(too-many-arguments),        CD.__init__] Too many arguments (7/5)
+cdRental/cd.py:14:[C0111(missing-docstring),        CD.set_rent] Missing method docstring
+cdRental/cd.py:4:[R0903(too-few-public-methods),        CD] Too few public methods (1/2)
+************* Module cdRental.customer
+cdRental/customer.py:1:[C0111(missing-docstring),        ] Missing module docstring
+cdRental/customer.py:6:[C0103(invalid-name),        Customer.__init__] Invalid attribute name "id"
+cdRental/customer.py:1:[C0111(missing-docstring),        Customer] Missing class docstring
+cdRental/customer.py:2:[W0622(redefined-builtin),        Customer.__init__] Redefining built-in 'id'
+cdRental/customer.py:1:[R0903(too-few-public-methods),        Customer] Too few public methods (0/2)
+************* Module cdRental.cd_list
+cdRental/cd_list.py:9:[C0304(missing-final-newline),        ] Final newline missing
+cdRental/cd_list.py:1:[C0111(missing-docstring),        ] Missing module docstring
+cdRental/cd_list.py:1:[C0111(missing-docstring),        CDList] Missing class docstring
+cdRental/cd_list.py:5:[C0103(invalid-name),        CDList.add_cd] Invalid argument name "cd"
+cdRental/cd_list.py:5:[C0111(missing-docstring),        CDList.add_cd] Missing method docstring
+cdRental/cd_list.py:8:[W0622(redefined-builtin),        CDList.get_cd_data] Redefining built-in 'id'
+cdRental/cd_list.py:8:[C0103(invalid-name),        CDList.get_cd_data] Invalid argument name "id"
+cdRental/cd_list.py:8:[C0111(missing-docstring),        CDList.get_cd_data] Missing method docstring
+************* Module cdRental.customer_list
+cdRental/customer_list.py:1:[C0111(missing-docstring),        ] Missing module docstring
+cdRental/customer_list.py:1:[C0111(missing-docstring),        CustomerList] Missing class docstring
+cdRental/customer_list.py:5:[C0111(missing-docstring),        CustomerList.add_customer] Missing method docstring
+cdRental/customer_list.py:8:[W0622(redefined-builtin),        CustomerList.get_customer_data] Redefining built-in 'id'
+cdRental/customer_list.py:8:[C0103(invalid-name),        CustomerList.get_customer_data] Invalid argument name "id"
+cdRental/customer_list.py:8:[C0111(missing-docstring),        CustomerList.get_customer_data] Missing method docstring
+************* Module cdRental.dbautomate
+cdRental/dbautomate.py:15:[C0304(missing-final-newline),        ] Final newline missing
+cdRental/dbautomate.py:1:[C0111(missing-docstring),        ] Missing module docstring
+cdRental/dbautomate.py:1:[F0401(import-error),        ] Unable to import 'models'
+cdRental/dbautomate.py:8:[C0103(invalid-name),        ] Invalid constant name "beatles"
+cdRental/dbautomate.py:9:[C0103(invalid-name),        ] Invalid constant name "customer1"
+cdRental/dbautomate.py:14:[C0103(invalid-name),        ] Invalid constant name "cdrent"
+cdRental/dbautomate.py:2:[W0611(unused-import),        ] Unused import datetime
+************* Module cdRental.cd_rental_app
+cdRental/cd_rental_app.py:38:[W0311(bad-indentation),        ] Bad indentation. Found 8 spaces, expected 4
+cdRental/cd_rental_app.py:39:[W0311(bad-indentation),        ] Bad indentation. Found 8 spaces, expected 4
+cdRental/cd_rental_app.py:46:[C0330(bad-continuation),        ] Wrong continued indentation.
+                           'CustomerName': customer.name,
+                       |   ^
+cdRental/cd_rental_app.py:47:[C0330(bad-continuation),        ] Wrong continued indentation.
+                           'CDID': cd.id,
+                       |   ^
+cdRental/cd_rental_app.py:48:[C0330(bad-continuation),        ] Wrong continued indentation.
+                           'CDTitle': cd.title,
+                       |   ^
+cdRental/cd_rental_app.py:49:[C0330(bad-continuation),        ] Wrong continued indentation.
+                           'RentalDue': cd.rental_due}
+                       |   ^
+cdRental/cd_rental_app.py:1:[C0111(missing-docstring),        ] Missing module docstring
+cdRental/cd_rental_app.py:2:[W0403(relative-import),        ] Relative import 'cd', should be 'cdRental.cd'
+cdRental/cd_rental_app.py:3:[W0403(relative-import),        ] Relative import 'customer', should be 'cdRental.customer'
+cdRental/cd_rental_app.py:4:[W0403(relative-import),        ] Relative import 'cd_list', should be 'cdRental.cd_list'
+cdRental/cd_rental_app.py:5:[W0403(relative-import),        ] Relative import 'customer_list', should be 'cdRental.customer_list'
+cdRental/cd_rental_app.py:8:[C0103(invalid-name),        ] Invalid constant name "app"
+cdRental/cd_rental_app.py:25:[W0621(redefined-outer-name),        index] Redefining name 'customer' from outer scope (line 55)
+cdRental/cd_rental_app.py:24:[W0621(redefined-outer-name),        index] Redefining name 'cd' from outer scope (line 53)
+cdRental/cd_rental_app.py:14:[C0111(missing-docstring),        index] Missing function docstring
+cdRental/cd_rental_app.py:21:[W0702(bare-except),        index] No exception type(s) specified
+cdRental/cd_rental_app.py:24:[C0103(invalid-name),        index] Invalid variable name "cd"
+cdRental/cd_rental_app.py:38:[W0621(redefined-outer-name),        record_cd_as_rented] Redefining name 'cd' from outer scope (line 53)
+cdRental/cd_rental_app.py:37:[C0111(missing-docstring),        record_cd_as_rented] Missing function docstring
+cdRental/cd_rental_app.py:38:[C0103(invalid-name),        record_cd_as_rented] Invalid variable name "cd"
+cdRental/cd_rental_app.py:44:[W0621(redefined-outer-name),        generate_rental_contract] Redefining name 'customer' from outer scope (line 55)
+cdRental/cd_rental_app.py:43:[W0621(redefined-outer-name),        generate_rental_contract] Redefining name 'cd' from outer scope (line 53)
+cdRental/cd_rental_app.py:42:[C0111(missing-docstring),        generate_rental_contract] Missing function docstring
+cdRental/cd_rental_app.py:43:[C0103(invalid-name),        generate_rental_contract] Invalid variable name "cd"
+cdRental/cd_rental_app.py:53:[C0103(invalid-name),        ] Invalid constant name "cd"
+cdRental/cd_rental_app.py:55:[C0103(invalid-name),        ] Invalid constant name "customer"
+
+
+Report
+======
+88 statements analysed.
+
+Statistics by type
+------------------
+
++---------+-------+-----------+-----------+------------+---------+
+|type     |number |old number |difference |%documented |%badname |
++=========+=======+===========+===========+============+=========+
+|module   |7      |7          |=          |0.00        |14.29    |
++---------+-------+-----------+-----------+------------+---------+
+|class    |4      |4          |=          |0.00        |0.00     |
++---------+-------+-----------+-----------+------------+---------+
+|method   |9      |9          |=          |44.44       |0.00     |
++---------+-------+-----------+-----------+------------+---------+
+|function |3      |3          |=          |0.00        |0.00     |
++---------+-------+-----------+-----------+------------+---------+
+
+
+
+External dependencies
+---------------------
+::
+
+    cdRental 
+      \-cd (cdRental.cd_rental_app)
+      \-cd_list (cdRental.cd_rental_app)
+      \-customer (cdRental.cd_rental_app)
+      \-customer_list (cdRental.cd_rental_app)
+    flask (cdRental.cd_rental_app)
+
+
+
+Raw metrics
+-----------
+
++----------+-------+------+---------+-----------+
+|type      |number |%     |previous |difference |
++==========+=======+======+=========+===========+
+|code      |96     |88.89 |96       |=          |
++----------+-------+------+---------+-----------+
+|docstring |4      |3.70  |4        |=          |
++----------+-------+------+---------+-----------+
+|comment   |0      |0.00  |0        |=          |
++----------+-------+------+---------+-----------+
+|empty     |8      |7.41  |8        |=          |
++----------+-------+------+---------+-----------+
+
+
+
+Duplication
+-----------
+
++-------------------------+------+---------+-----------+
+|                         |now   |previous |difference |
++=========================+======+=========+===========+
+|nb duplicated lines      |0     |0        |=          |
++-------------------------+------+---------+-----------+
+|percent duplicated lines |0.000 |0.000    |=          |
++-------------------------+------+---------+-----------+
+
+
+
+Messages by category
+--------------------
+
++-----------+-------+---------+-----------+
+|type       |number |previous |difference |
++===========+=======+=========+===========+
+|convention |40     |40       |=          |
++-----------+-------+---------+-----------+
+|refactor   |3      |3        |=          |
++-----------+-------+---------+-----------+
+|warning    |17     |17       |=          |
++-----------+-------+---------+-----------+
+|error      |0      |0        |=          |
++-----------+-------+---------+-----------+
+
+
+
+% errors / warnings by module
+-----------------------------
+
++-----------------------+------+--------+---------+-----------+
+|module                 |error |warning |refactor |convention |
++=======================+======+========+=========+===========+
+|cdRental.cd_rental_app |0.00  |70.59   |0.00     |35.00      |
++-----------------------+------+--------+---------+-----------+
+|cdRental.cd            |0.00  |5.88    |66.67    |10.00      |
++-----------------------+------+--------+---------+-----------+
+|cdRental.customer      |0.00  |5.88    |33.33    |7.50       |
++-----------------------+------+--------+---------+-----------+
+|cdRental.cd_list       |0.00  |5.88    |0.00     |17.50      |
++-----------------------+------+--------+---------+-----------+
+|cdRental.dbautomate    |0.00  |5.88    |0.00     |12.50      |
++-----------------------+------+--------+---------+-----------+
+|cdRental.customer_list |0.00  |5.88    |0.00     |12.50      |
++-----------------------+------+--------+---------+-----------+
+|cdRental               |0.00  |0.00    |0.00     |5.00       |
++-----------------------+------+--------+---------+-----------+
+
+
+
+Messages
+--------
+
++-----------------------+------------+
+|message id             |occurrences |
++=======================+============+
+|missing-docstring      |19          |
++-----------------------+------------+
+|invalid-name           |15          |
++-----------------------+------------+
+|redefined-outer-name   |5           |
++-----------------------+------------+
+|relative-import        |4           |
++-----------------------+------------+
+|redefined-builtin      |4           |
++-----------------------+------------+
+|bad-continuation       |4           |
++-----------------------+------------+
+|too-few-public-methods |2           |
++-----------------------+------------+
+|missing-final-newline  |2           |
++-----------------------+------------+
+|bad-indentation        |2           |
++-----------------------+------------+
+|unused-import          |1           |
++-----------------------+------------+
+|too-many-arguments     |1           |
++-----------------------+------------+
+|import-error           |1           |
++-----------------------+------------+
+|bare-except            |1           |
++-----------------------+------------+
+
+
+
+Global evaluation
+-----------------
+Your code has been rated at 3.18/10 (previous run: 3.18/10, +0.00)
+

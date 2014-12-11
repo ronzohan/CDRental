@@ -34,7 +34,7 @@ def index():
         return render_template('index.html', rental_contract=rental_contract)
 
 
-def record_cd_as_rented( cd_id, customer_id):
+def record_cd_as_rented(cd_id, customer_id):
         cd = CDLIST.get_cd_data(cd_id)
         cd.set_rent(customer_id)
 
@@ -46,8 +46,7 @@ def generate_rental_contract(cd_id):
                            'CustomerName': customer.name,
                            'CDID': cd.id,
                            'CDTitle': cd.title,
-                           'RentalDue': cd.rental_due
-                           }
+                           'RentalDue': cd.rental_due}
     return rental_contract
 
 if __name__ == "__main__":
